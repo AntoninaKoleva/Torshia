@@ -1,10 +1,7 @@
 ﻿using SIS.MvcFramework;
-using SIS.MvcFramework.DependencyContainer;
 using SIS.MvcFramework.Routing;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Torshia.Data;
+using Torshia.Services;
 
 namespace Torshia.App
 {
@@ -20,7 +17,7 @@ namespace Torshia.App
 
         public void ConfigureServices(SIS.MvcFramework.DependencyContainer.IServiceProvider serviceProvider)
         {
-            //throw new NotImplementedException();
+            serviceProvider.Add<IUserService, UserService>();
         }
     }
 }

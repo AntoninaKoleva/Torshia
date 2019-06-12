@@ -1,0 +1,42 @@
+﻿<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-torshia">
+        <a class="navbar-brand nav-link-white" href="/">TORSHIA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-white active" href="/">Home</a>
+                </li>
+                @if(Model.Role == "Admin")
+                {
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-white active" href="/logout">Create Task</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-white active" href="/logout">Reports</a>
+                    </li>
+                }
+                <li class="nav-item">
+                    <a class="nav-link nav-link-white active" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="jumbotron mt-3 bg-white">
+        @if(Model.Role == "Admin")
+        {
+        <h1 class="text-center text-warning">Welcome, Admin-<span class="text-warning">@{WebUtility.UrlDecode(Model.Username)}</span></h1>
+        <h2 class="text-center text-warning">Enjoy your work!</h2>
+        }
+        @if(Model.Role == "User")
+        {
+        <h1 class="text-center text-warning">Welcome, <span class="text-warning">@{WebUtility.UrlDecode(Model.Username)}</span></h1>
+        <h2 class="text-center text-warning">Have a nice tasking experience!</h2>
+        }
+        <hr class="bg-torshia" style="height: 2px" />
+    </div>
+</main>
